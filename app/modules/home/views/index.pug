@@ -1,0 +1,21 @@
+//- This is how we extend a template using the 'extends' keyword
+extends ../../../templates/master.pug
+
+//- This is how we insert dynamic content to extended templates
+block content
+    h1.title Welcome to Mini Forum
+    a.button.is-primary.pull-right(href="/post")
+        span.fa.fa-plus
+        |   &nbsp; New Post
+    h1.subtitle Where you can post Freely!!
+    hr
+
+    table.table.is-fullwidth
+        thead
+            tr
+                th Categories
+ 
+        tbody
+            each post in posts
+                tr
+                    td: a(href=`/post/${post.intCategoryId}`)= post.strCategoryName

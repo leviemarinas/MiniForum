@@ -1,0 +1,14 @@
+extends ../../../templates/master.pug
+
+block content
+    each post in posts
+        div.entry
+            div.top-matter
+                h1.title #{post.strPostTitle}
+                p.subtitle posted: #{post.dtmPostDate} author: #{post.strUsername}
+                a(href=`/post/${post.intCategoryId}/${post.intPostId}/edit`): span.fa.fa-edit
+                | &nbsp;
+                a(href=`/post/${post.intCategoryId}/${post.intPostId}/remove`): span.fa.fa-remove
+            hr
+            div
+                p.content #{post.strPostContent}

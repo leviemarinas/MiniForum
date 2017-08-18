@@ -1,0 +1,16 @@
+extends ../../../templates/master
+
+block content
+    h1.title 
+        span.fa.fa-user  Profile
+    hr
+    table
+        each user in users
+            tr
+                td=`Username:  ${user.strUsername}`
+            tr
+                td=`Email Address:  ${user.strEmail}`
+            tr
+                td=`Birthday:  ${user.dtmBdate}`
+            tr
+                td=`UserType:  ${user.strUserType}`

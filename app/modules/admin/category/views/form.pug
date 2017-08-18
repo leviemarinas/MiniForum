@@ -1,0 +1,13 @@
+extends ../../../../templates/master
+
+block content
+    h1.title
+        span.fa(class= user ? 'fa-user' : 'fa-user-plus')
+        | &nbsp; #{category ? 'Edit': 'Add'} category
+
+    form(method="POST" action=`/admin/category${category ? `/${category.intCategoryId}?_method=PUT` : ''}`)
+        .field
+            .label Category Name
+            .control
+                input.input(type="text" name="name" value= category ? category.strCategoryName : '')
+        input.button.is-primary(type="submit" value="Submit")

@@ -1,0 +1,29 @@
+extends ../../../templates/master.pug
+
+block content
+    h1.title
+        span.fa.fa-user
+        | &nbsp; Edit Post
+    each post in posts
+        form(method="POST" action=`/post/${post.intCategoryId}/${post.intPostId}/edit`)
+            .field
+                .label Category:
+                .control
+                    select.input(name="category")
+                        each post in posts
+                            option(value=post.intCategoryId) #{post.strCategoryName}
+            .field
+                .label Title:
+                .control
+                    input.input(type="text" name="title" value= post ? post.strPostTitle : '')
+            .field
+                .label Content:
+                .control
+                    textArea.input(type="text" name="content" value= post ? post.strPostContent : '' style="margin: 0px; width: 1200px; height: 171px;")
+            input.button.is-primary(type="submit" value="Edit")
+
+
+
+
+
+        

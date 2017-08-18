@@ -1,0 +1,21 @@
+extends ../../../templates/master.pug
+
+block content
+    each post in posts
+        h1.title #{post.strCategoryName} 
+        
+        a.button.is-primary.pull-right(href="/post")
+            span.fa.fa-plus
+            | &nbsp; New Post
+        table.table.is-fullwidth
+            thead
+                tr
+                    th PostID
+                    th PostTitle
+                    th Date Publish
+            
+            tbody
+                    tr
+                        td= post.intPostId
+                        td: a(href=`/post/${post.intCategoryId}/${post.intPostId}`)= post.strPostTitle
+                        td= post.dtmPostDate

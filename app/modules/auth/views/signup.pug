@@ -1,0 +1,29 @@
+extends ../../../templates/base
+
+block body
+    h1.title
+        span.fa(class= user ? 'fa-user' : 'fa-user-plus')
+        | &nbsp; #{user ? 'Edit': 'Add'} User
+    div.container
+            form(method="POST" action='/signup')
+                .field
+                    .label Username
+                    .control
+                        input.input(type="text" name="username")
+                .field
+                    .label Password
+                    .control
+                        input.input(type="password" name="password")
+                .field
+                    .label E-mail
+                    .control
+                        input.input(type="email" name="email")
+                .field
+                    .label Birthday
+                    .control
+                        input.input(type="date" name="date")
+                .field
+                    .control
+                        input.input(type="hidden" name="usertype" value="NORMAL")
+                
+                input.button.is-primary(type="submit" value="Submit")
